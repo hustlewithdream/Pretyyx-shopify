@@ -1886,6 +1886,24 @@ main > .shopify-section:first-child .section:not(.disable-section-top-offset) {
   }
 }
 
+/* Hustle with dreams */
+
+@font-face {
+  font-family: 'GothamSSm-Medium';
+  src: url('https://cdn.shopify.com/s/files/1/0678/0275/9230/files/GothamSSm-Medium.woff2?v=1787159311') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 footer .shopify-section-group-footer-group .footer-content .group-block rte-formatter p a {
     text-decoration: none;
+}
+
+h4, .h4.h4, .text-block.h4>*, .text-block.h4 :is(h1,h2,h3,h4,h5,h6) {
+    font-family: 'GothamSSm-Medium';
+}
+
+footer .shopify-section-group-footer-group .footer-content h4{
+  font-size: 17px !important;
 }

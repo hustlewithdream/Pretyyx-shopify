@@ -1,0 +1,297 @@
+<section class="popular-searches" style="background-color: {{ section.settings.bg_color }};">
+  <div class="popular-searches__container section section--page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="popular-searches__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="popular-searches__groups">
+      {% for block in section.blocks %}
+        {% if block.type == 'search_group' %}
+          <div class="popular-searches__group" {{ block.shopify_attributes }}>
+            {% if block.settings.group_title != blank %}
+              <h3 class="popular-searches__group-title">{{ block.settings.group_title }}</h3>
+            {% endif %}
+
+            <div class="popular-searches__links">
+              {% for i in (1..8) %}
+                {% assign link_text_key = 'link_text_' | append: i %}
+                {% assign link_url_key = 'link_url_' | append: i %}
+                {% assign link_text = block.settings[link_text_key] %}
+                {% assign link_url = block.settings[link_url_key] %}
+
+                {% if link_text != blank %}
+                  <a href="{{ link_url | default: '#' }}" class="popular-searches__link">{{ link_text }}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .popular-searches {
+    padding: 40px 0;
+  }
+
+  .popular-searches__heading {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 24px 0;
+  }
+
+  .popular-searches__groups {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .popular-searches__group {
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .popular-searches__group:last-child {
+    border-bottom: none;
+  }
+
+  .popular-searches__group-title {
+    font-size: 14px;
+    font-weight: 400;
+    color: #8a8a8a;
+    margin: 0 0 8px 0;
+  }
+
+  .popular-searches__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 6px;
+  }
+
+  .popular-searches__link {
+    font-size: 14px;
+    color: #7a7a7a;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .popular-searches__link:hover {
+    color: #1a1a1a;
+    text-decoration: underline;
+  }
+
+  .popular-searches__link:not(:last-child)::after {
+    content: '|';
+    margin: 0 8px;
+    color: #d0d0d0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .popular-searches__heading {
+      font-size: 22px;
+    }
+
+    .popular-searches__link {
+      font-size: 13px;
+    }
+
+    .popular-searches__link:not(:last-child)::after {
+      margin: 0 6px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Popular searches",
+  "tag": "section",
+  "class": "shopify-section--popular-searches",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Popular Searches"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "search_group",
+      "name": "Search group",
+      "settings": [
+        {
+          "type": "text",
+          "id": "group_title",
+          "label": "Group title",
+          "default": "For Women"
+        },
+        {
+          "type": "text",
+          "id": "link_text_1",
+          "label": "Link 1 text",
+          "default": "Rings For Women"
+        },
+        {
+          "type": "url",
+          "id": "link_url_1",
+          "label": "Link 1 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text_2",
+          "label": "Link 2 text",
+          "default": "Earrings For Women"
+        },
+        {
+          "type": "url",
+          "id": "link_url_2",
+          "label": "Link 2 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text_3",
+          "label": "Link 3 text"
+        },
+        {
+          "type": "url",
+          "id": "link_url_3",
+          "label": "Link 3 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text_4",
+          "label": "Link 4 text"
+        },
+        {
+          "type": "url",
+          "id": "link_url_4",
+          "label": "Link 4 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text_5",
+          "label": "Link 5 text"
+        },
+        {
+          "type": "url",
+          "id": "link_url_5",
+          "label": "Link 5 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text_6",
+          "label": "Link 6 text"
+        },
+        {
+          "type": "url",
+          "id": "link_url_6",
+          "label": "Link 6 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text_7",
+          "label": "Link 7 text"
+        },
+        {
+          "type": "url",
+          "id": "link_url_7",
+          "label": "Link 7 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text_8",
+          "label": "Link 8 text"
+        },
+        {
+          "type": "url",
+          "id": "link_url_8",
+          "label": "Link 8 URL"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Popular searches",
+      "blocks": [
+        {
+          "type": "search_group",
+          "settings": {
+            "group_title": "For Women",
+            "link_text_1": "Demifine® Collection",
+            "link_text_2": "Rings For Women",
+            "link_text_3": "Earrings For Women",
+            "link_text_4": "Bracelet For Women",
+            "link_text_5": "Pendants For Women",
+            "link_text_6": "Necklaces For Women"
+          }
+        },
+        {
+          "type": "search_group",
+          "settings": {
+            "group_title": "For Men",
+            "link_text_1": "Rings For Men",
+            "link_text_2": "Pendant For Men",
+            "link_text_3": "Chain For Men"
+          }
+        },
+        {
+          "type": "search_group",
+          "settings": {
+            "group_title": "Mangalsutra",
+            "link_text_1": "Gold Mangalsutra",
+            "link_text_2": "Diamond Mangalsutra",
+            "link_text_3": "Infinity Mangalsutra"
+          }
+        },
+        {
+          "type": "search_group",
+          "settings": {
+            "group_title": "Pendants",
+            "link_text_1": "Gold Pendants",
+            "link_text_2": "Diamond Pendants",
+            "link_text_3": "Solitaire Pendants",
+            "link_text_4": "Evil Eye Pendants"
+          }
+        },
+        {
+          "type": "search_group",
+          "settings": {
+            "group_title": "Bracelets",
+            "link_text_1": "Gold Bracelets",
+            "link_text_2": "Diamond Bracelets",
+            "link_text_3": "Pearl Bracelets",
+            "link_text_4": "Evil Eye Bracelets",
+            "link_text_5": "Chain Bracelets",
+            "link_text_6": "Stone Bracelets",
+            "link_text_7": "Cuff Bracelets"
+          }
+        },
+        {
+          "type": "search_group",
+          "settings": {
+            "group_title": "Necklace",
+            "link_text_1": "Gold Necklace",
+            "link_text_2": "Diamond Necklace",
+            "link_text_3": "Pearl Necklace",
+            "link_text_4": "Necklaces For Women",
+            "link_text_5": "Evil Eye Necklace",
+            "link_text_6": "Name Necklace",
+            "link_text_7": "Emerald Necklace"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
