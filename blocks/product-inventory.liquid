@@ -56,7 +56,7 @@
   Do not randomly generate or increase purchase numbers.
 {% endcomment %}
 
-{% assign recent_purchase_count = product.metafields.custom.recent_purchase_count | default: 0 %}
+{% assign recent_purchase_count = product.metafields.custom.recent_purchase_count | default: 5 %}
 {% assign purchase_hours = product.metafields.custom.purchase_window_hours | default: 2 %}
 
 {% if recent_purchase_count > 0 %}
