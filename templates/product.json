@@ -181,6 +181,20 @@
                 "price_tVjtKg"
               ]
             },
+            "product_inventory_TqaE6M": {
+              "type": "product-inventory",
+              "name": "t:names.product_inventory",
+              "settings": {
+                "inventory_threshold": 10,
+                "show_inventory_quantity": true,
+                "text_color": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "divider_VJhene": {
               "type": "_divider",
               "name": "t:names.divider",
@@ -191,21 +205,6 @@
                 "width_percent": 100,
                 "padding-block-start": 0,
                 "padding-block-end": 0
-              },
-              "blocks": {}
-            },
-            "product_inventory_TqaE6M": {
-              "type": "product-inventory",
-              "name": "t:names.product_inventory",
-              "disabled": true,
-              "settings": {
-                "inventory_threshold": 10,
-                "show_inventory_quantity": true,
-                "text_color": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
               },
               "blocks": {}
             },
@@ -427,8 +426,8 @@
           },
           "block_order": [
             "group_icgrde",
-            "divider_VJhene",
             "product_inventory_TqaE6M",
+            "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "text_aEtTtq",
