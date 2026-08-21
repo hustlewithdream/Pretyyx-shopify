@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "collection_list_Wfgh3m": {
       "type": "main-collection-list",
@@ -30,17 +31,21 @@
             "height": "fit",
             "custom_height": 100,
             "background_media": "none",
+            "background_color": "",
             "video_position": "cover",
             "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
             "toggle_overlay": false,
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
             "open_in_new_tab": false,
+            "placeholder": "",
             "padding-block-start": 0,
             "padding-block-end": 48,
             "padding-inline-start": 0,
@@ -57,10 +62,12 @@
                 "alignment": "left",
                 "type_preset": "h2",
                 "font": "var(--font-body--family)",
+                "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
+                "text_color": "",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -70,10 +77,37 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "text_QaA8Wn": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h2>Explore Jewellery Collections at Prettyx</h2><p>Discover stylish <strong>jewellery for women</strong> at Prettyx, designed to complement everyday outfits and special occasions. Explore our collection of <strong>trendy earrings, stylish pendants and fashionable jewellery</strong> created for modern women who love effortless style.</p><h3>Earrings for Women</h3><p>Find <strong>earrings for women</strong> in versatile styles that work beautifully for everyday wear, office outfits, parties and celebrations. From minimal designs to eye-catching statement pieces, Prettyx earrings are an easy way to add a stylish finishing touch to any look.</p><h3>Stylish Pendants for Women</h3><p>Explore <strong>stylish pendants for women</strong> that can be paired with your favourite outfits. Whether you prefer simple, elegant or trendy jewellery, our pendant collection offers versatile pieces for everyday styling and special occasions.</p><h3>Trendy & Affordable Jewellery Online</h3><p>At Prettyx, discovering <strong>affordable jewellery online</strong> is simple. Our collections are curated for women who want fashionable accessories without compromising on style. Whether you're shopping for yourself or looking for a <strong>jewellery gift for women</strong>, explore our collections to find something special.</p><p>Browse Prettyx jewellery collections and discover <strong>everyday jewellery, trendy earrings and stylish pendants</strong> that match your personal style. Find your favourite pieces and add effortless elegance to every outfit.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
-            "text_fRMQMR"
+            "text_fRMQMR",
+            "text_QaA8Wn"
           ]
         },
         "static-collection-card": {
@@ -85,9 +119,11 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "flex-start",
             "collection_card_gap": 8,
+            "background_color": "",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
+            "border_color": "",
             "border_radius": 0
           },
           "blocks": {
@@ -107,6 +143,7 @@
                 "wrap": "pretty",
                 "background": false,
                 "background_color": "#00000026",
+                "text_color": "{{ settings.color_palette.foreground }}",
                 "corner_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
@@ -128,6 +165,7 @@
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
+                "border_color": "",
                 "border_radius": 0
               },
               "blocks": {}
