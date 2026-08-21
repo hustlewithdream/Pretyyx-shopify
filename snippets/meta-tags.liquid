@@ -125,7 +125,9 @@
 
   {% elsif request.path == '/policies/contact-information' %}
     Contact Information | Prettyx
-
+  
+  {% elsif request.path == '/collections' %}
+    Shop by Category | Earrings, Pendants & Digital Cards – Prettyx
   {% else %}
     {{ page_title }}
     {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
