@@ -11,6 +11,53 @@
   "type": "footer",
   "name": "t:names.footer",
   "sections": {
+    "trust_badges_4xYR9w": {
+      "type": "trust-badges",
+      "blocks": {
+        "badge_fYRWPV": {
+          "type": "badge",
+          "settings": {
+            "icon": "returns",
+            "text": "Free 30-day returns",
+            "link": ""
+          }
+        },
+        "badge_BQaaeb": {
+          "type": "badge",
+          "settings": {
+            "icon": "shipping",
+            "text": "Free shipping on orders $75+",
+            "link": ""
+          }
+        },
+        "badge_KH7BQz": {
+          "type": "badge",
+          "settings": {
+            "icon": "gift",
+            "text": "Gift packaging available",
+            "link": ""
+          }
+        },
+        "badge_6EtkCJ": {
+          "type": "badge",
+          "settings": {
+            "icon": "warranty",
+            "text": "Complimentary 1-year warranty",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "badge_fYRWPV",
+        "badge_BQaaeb",
+        "badge_KH7BQz",
+        "badge_6EtkCJ"
+      ],
+      "name": "Trust badges",
+      "settings": {
+        "bg_color": "#ffffff"
+      }
+    },
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
@@ -731,8 +778,9 @@
         "padding-block-end": 48
       }
     }
-  },
+  }, 
   "order": [
+    "trust_badges_4xYR9w",
     "footer_m9NzUG",
     "footer_utilities_jLGE8U"
   ]
