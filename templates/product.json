@@ -181,25 +181,13 @@
                 "price_tVjtKg"
               ]
             },
-            "text_xpbKQ7": {
-              "type": "text",
-              "name": "t:names.text",
+            "product_inventory_TqaE6M": {
+              "type": "product-inventory",
+              "name": "t:names.product_inventory",
               "settings": {
-                "text": "<p>Handmade terracotta jewellery</p><p>Material : Natural Clay</p><p>Colour : Gold/Black/Red</p><p>Size: Medium (2.5cms-3cms jhumki size)</p><p>Shipping : 10 Business Days</p><p>Colours can be customised if required. Please contact us.</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
+                "inventory_threshold": 10,
+                "show_inventory_quantity": true,
                 "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -217,20 +205,6 @@
                 "width_percent": 100,
                 "padding-block-start": 0,
                 "padding-block-end": 0
-              },
-              "blocks": {}
-            },
-            "product_inventory_TqaE6M": {
-              "type": "product-inventory",
-              "name": "t:names.product_inventory",
-              "settings": {
-                "inventory_threshold": 10,
-                "show_inventory_quantity": true,
-                "text_color": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
               },
               "blocks": {}
             },
@@ -655,9 +629,8 @@
           },
           "block_order": [
             "group_icgrde",
-            "text_xpbKQ7",
-            "divider_VJhene",
             "product_inventory_TqaE6M",
+            "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "text_aEtTtq",
