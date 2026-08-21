@@ -1912,3 +1912,7 @@ main[data-template="page.contact"] .text-block>* {
     width: 100%;
     max-inline-size: 100%;
 }
+
+main[data-template="collection"] .section .border-style.custom-section-content .spacing-style {
+    padding: 0;
+}
