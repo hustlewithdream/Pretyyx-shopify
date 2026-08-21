@@ -5,9 +5,14 @@
     render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
   endif
 %}
+{% style %}
+.main_blog_custom+.section .image-block .placeholder-image {
+    display: none !important;
+}
+{% endstyle %}
 
 <div
-  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+  class="main_blog_custom section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
 ></div>
 <div class="section{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}">
   <div

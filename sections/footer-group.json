@@ -84,7 +84,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>For any suggestions, queries or complaints please contact us:<br/><br/>Phone : <br/>Email : </p>",
+                "text": "<p>For any suggestions, queries or complaints please contact us:<br/><br/>Phone : <a href=\"tel:+91 88174 14895\" title=\"Phone\">+91 88174 14895</a><br/>Email : <a href=\"mailto:support.prettyx@gmail.com\" title=\"Email\">support.prettyx@gmail.com</a></p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -124,7 +124,7 @@
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
-            "width": "fill",
+            "width": "custom",
             "custom_width": 100,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
@@ -566,7 +566,7 @@
             "text_LWt8Pz": {
               "type": "text",
               "settings": {
-                "text": "<h2>Join our email list</h2>",
+                "text": "<h4>Join our email list</h4>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -663,9 +663,9 @@
       "settings": {
         "section_width": "page-width",
         "gap": 20,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 30,
-        "padding-block-end": 30
+        "background_color": "{{ settings.color_palette.foreground }}",
+        "padding-block-start": 70,
+        "padding-block-end": 34
       }
     },
     "footer_utilities_jLGE8U": {
@@ -686,7 +686,7 @@
           "settings": {
             "icon_color": "",
             "facebook_url": "https://www.facebook.com/",
-            "instagram_url": "https://www.instagram.com/",
+            "instagram_url": "https://www.instagram.com/beprettyx_",
             "youtube_url": "https://www.youtube.com/",
             "tiktok_url": "https://www.tiktok.com/",
             "twitter_url": "https://x.com/",
@@ -710,9 +710,9 @@
       "settings": {
         "section_width": "page-width",
         "gap": 24,
-        "background_color": "{{ settings.color_palette.background }}",
+        "background_color": "{{ settings.color_palette.foreground }}",
         "divider_thickness": 1,
-        "divider_color": "{{ settings.color_palette.color2 }}",
+        "divider_color": "#FDF0E9",
         "padding-block-start": 20,
         "padding-block-end": 48
       }

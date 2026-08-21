@@ -1,0 +1,524 @@
+{%- liquid
+  assign colour = product.metafields.custom.colour
+  assign category = product.metafields.custom.category
+  assign ideal_for = product.metafields.custom.ideal_for
+  assign occasions = product.metafields.custom.occasions
+  assign styling = product.metafields.custom.styling
+  assign care_instructions = product.metafields.custom.care_instructions
+
+  assign has_colour = false
+  if colour.value != blank
+    assign has_colour = true
+  endif
+
+  assign has_category = false
+  if category.value != blank
+    assign has_category = true
+  endif
+
+  assign has_ideal_for = false
+  if ideal_for.value != blank
+    assign has_ideal_for = true
+  endif
+
+  assign has_occasions = false
+  if occasions.value != blank
+    assign has_occasions = true
+  endif
+
+  assign has_styling = false
+  if styling.value != blank
+    assign has_styling = true
+  endif
+
+  assign has_additional_info = false
+  if has_colour or has_category or has_ideal_for or has_occasions or has_styling
+    assign has_additional_info = true
+  endif
+
+  assign has_description = false
+  if product.description != blank
+    assign has_description = true
+  endif
+
+  assign has_care_instructions = false
+  if care_instructions != blank or care_instructions.value != blank
+    assign has_care_instructions = true
+  endif
+
+  assign has_any_tab = false
+  if has_description or has_additional_info or has_care_instructions
+    assign has_any_tab = true
+  endif
+-%}
+
+{%- if has_any_tab -%}
+  {% liquid
+    if section.settings.background_color != blank
+      render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+    endif
+  %}
+
+  <div
+    class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+  ></div>
+  <div
+    class="
+      section
+      section--{{ section.settings.section_width }}
+      {% if section.settings.background_color != blank %}color-custom-{{ section.id }}{% endif %}
+      spacing-style
+    "
+    style="      {% render 'spacing-style', settings: section.settings %}"
+  >
+    <div class="product-additional-info-accordion-group">
+      {%- if has_description -%}
+        <details
+          class="product-additional-info__accordion"
+          {% if section.settings.open_description_by_default %}
+            open
+          {% endif %}
+        >
+          <summary class="product-additional-info__summary">
+            <span class="product-additional-info__summary-text">
+              {{ section.settings.description_heading | default: 'Description' }}
+            </span>
+            <span class="product-additional-info__icon" aria-hidden="true">
+              <span class="product-additional-info__icon-plus">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 0V10M0 5H10" stroke="currentColor" stroke-width="0.8"/>
+                </svg>
+              </span>
+              <span class="product-additional-info__icon-minus">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 5H10" stroke="currentColor" stroke-width="0.8"/>
+                </svg>
+              </span>
+            </span>
+          </summary>
+          <div class="product-additional-info__panel">
+            <div class="product-additional-info__description rte">
+              {{ product.description }}
+            </div>
+          </div>
+        </details>
+      {%- endif -%}
+
+      {%- if has_additional_info -%}
+        <details
+          class="product-additional-info__accordion"
+          {% if section.settings.open_additional_info_by_default %}
+            open
+          {% endif %}
+        >
+          <summary class="product-additional-info__summary">
+            <span class="product-additional-info__summary-text">
+              {{ section.settings.heading | default: 'Additional information' }}
+            </span>
+            <span class="product-additional-info__icon" aria-hidden="true">
+              <span class="product-additional-info__icon-plus">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 0V10M0 5H10" stroke="currentColor" stroke-width="0.8"/>
+                </svg>
+              </span>
+              <span class="product-additional-info__icon-minus">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 5H10" stroke="currentColor" stroke-width="0.8"/>
+                </svg>
+              </span>
+            </span>
+          </summary>
+          <div class="product-additional-info__panel">
+            {% comment %}
+              <h3 class="product-additional-info__panel-title">
+                {{ section.settings.heading | default: 'Additional Information' }}
+              </h3>
+            {% endcomment %}
+            <table class="product-additional-info__table">
+              <tbody>
+                {%- if has_colour -%}
+                  <tr class="product-additional-info__row">
+                    <th class="product-additional-info__label" scope="row">
+                      {{ section.settings.label_colour | default: 'Colour' }}
+                    </th>
+                    <td class="product-additional-info__value">{{ colour.value }}</td>
+                  </tr>
+                {%- endif -%}
+
+                {%- if has_category -%}
+                  <tr class="product-additional-info__row">
+                    <th class="product-additional-info__label" scope="row">
+                      {{ section.settings.label_category | default: 'Category' }}
+                    </th>
+                    <td class="product-additional-info__value">{{ category.value }}</td>
+                  </tr>
+                {%- endif -%}
+
+                {%- if has_ideal_for -%}
+                  <tr class="product-additional-info__row">
+                    <th class="product-additional-info__label" scope="row">
+                      {{ section.settings.label_ideal_for | default: 'Ideal For' }}
+                    </th>
+                    <td class="product-additional-info__value">{{ ideal_for.value }}</td>
+                  </tr>
+                {%- endif -%}
+
+                {%- if has_occasions -%}
+                  <tr class="product-additional-info__row">
+                    <th class="product-additional-info__label" scope="row">
+                      {{ section.settings.label_occasions | default: 'Occasions' }}
+                    </th>
+                    <td class="product-additional-info__value">{{ occasions.value }}</td>
+                  </tr>
+                {%- endif -%}
+
+                {%- if has_styling -%}
+                  <tr class="product-additional-info__row">
+                    <th class="product-additional-info__label" scope="row">
+                      {{ section.settings.label_styling | default: 'Styling' }}
+                    </th>
+                    <td class="product-additional-info__value">{{ styling.value }}</td>
+                  </tr>
+                {%- endif -%}
+              </tbody>
+            </table>
+          </div>
+        </details>
+      {%- endif -%}
+
+      {%- if has_care_instructions -%}
+        <details
+          class="product-additional-info__accordion"
+          {% if section.settings.open_care_instructions_by_default %}
+            open
+          {% endif %}
+        >
+          <summary class="product-additional-info__summary">
+            <span class="product-additional-info__summary-text">
+              {{ section.settings.care_instructions_heading | default: 'Care instructions' }}
+            </span>
+            <span class="product-additional-info__icon" aria-hidden="true">
+              <span class="product-additional-info__icon-plus">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 0V10M0 5H10" stroke="currentColor" stroke-width="0.8"/>
+                </svg>
+              </span>
+              <span class="product-additional-info__icon-minus">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 5H10" stroke="currentColor" stroke-width="0.8"/>
+                </svg>
+              </span>
+            </span>
+          </summary>
+          <div class="product-additional-info__panel">
+            <div class="product-additional-info__care-instructions rte">
+              {{ care_instructions | metafield_tag }}
+            </div>
+          </div>
+        </details>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <style>
+    .product-additional-info-accordion-group {
+      border-top: 1px solid rgba(var(--color-border, 224, 224, 224), 0.6);
+      width: 100%;
+    }
+
+    .product-additional-info__accordion {
+      width: 100%;
+    }
+
+    .product-additional-info__summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style: none;
+      cursor: pointer;
+      font-family: var(--font-h3--family);
+      border-bottom: 1px solid #e7e7e7;
+      font-size: 20px;
+      line-height: 48px;
+      padding: 0;
+      font-weight: 400;
+      color: rgb(var(--color-foreground, 26, 26, 26));
+      transition: color 0.2s ease;
+    }
+
+    .product-additional-info__summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .product-additional-info__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.8rem;
+      height: 1.8rem;
+      border: 1px solid rgba(var(--color-border, 224, 224, 224), 1);
+      border-radius: 0px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .product-additional-info__icon-plus,
+    .product-additional-info__icon-minus {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(var(--color-foreground, 26, 26, 26));
+    }
+
+    .product-additional-info__icon-minus {
+      opacity: 0;
+    }
+
+    .product-additional-info__accordion[open] .product-additional-info__icon-plus {
+      opacity: 0;
+    }
+
+    .product-additional-info__accordion[open] .product-additional-info__icon-minus {
+      opacity: 1;
+    }
+
+    .product-additional-info__panel {
+      padding: 2rem 0;
+    }
+
+    .product-additional-info__panel-title {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 1.2rem;
+      color: rgb(var(--color-foreground, 26, 26, 26));
+    }
+
+    .product-additional-info__table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid rgba(var(--color-border, 224, 224, 224), 0.6);
+    }
+
+    .product-additional-info__row {
+      border-bottom: 1px solid rgba(var(--color-border, 224, 224, 224), 0.6);
+    }
+
+    .product-additional-info__row:last-child {
+      border-bottom: none;
+    }
+
+    .product-additional-info__label,
+    .product-additional-info__value {
+      padding: 0.8rem 1.2rem;
+      text-align: left;
+      font-size: 1.3rem;
+      vertical-align: middle;
+    }
+
+    .product-additional-info__label {
+      padding: 0 22px;
+      vertical-align: middle;
+      border-color: #ddd;
+      color: #333;
+      font-weight: 600;
+      background: #f7f7f7;
+      width: 50%;
+      border: 1px dotted rgb(0 0 0 / 0.1);
+      line-height: 44px;
+      font-size: 14px;
+    }
+
+    td.product-additional-info__value {
+      padding: 0 23px;
+      border-color: #ddd;
+      border-left: 1px solid #ddd;
+      width: 50%;
+      font-style: normal;
+      color: #6b6b6b;
+      text-transform: uppercase;
+      background: transparent !important;
+      font-size: 15px;
+      border: 1px dotted rgb(0 0 0 / 0.1);
+    }
+
+    .product-additional-info__value {
+      color: #666;
+      font-weight: 400;
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+    }
+
+    .product-additional-info__description,
+    .product-additional-info__care-instructions {
+      font-size: ;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    @media screen and (max-width: 749px) {
+      .product-additional-info__label,
+      .product-additional-info__value {
+        display: block;
+        width: 100%;
+        padding: 0.8rem 1.2rem;
+      }
+
+      .product-additional-info__label {
+        padding-bottom: 0.6rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(var(--color-border, 224, 224, 224), 0.6);
+      }
+
+      .product-additional-info__value {
+        padding-top: 0.6rem;
+      }
+    }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Additional information",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Description Tab"
+    },
+    {
+      "type": "text",
+      "id": "description_heading",
+      "label": "Description heading",
+      "default": "Description"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_description_by_default",
+      "label": "Open by default",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Additional Information Tab"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Additional information heading",
+      "default": "Additional information"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_additional_info_by_default",
+      "label": "Open by default",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Care Instructions Tab"
+    },
+    {
+      "type": "text",
+      "id": "care_instructions_heading",
+      "label": "Care instructions heading",
+      "default": "Care instructions"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_care_instructions_by_default",
+      "label": "Open by default",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Row labels"
+    },
+    {
+      "type": "text",
+      "id": "label_colour",
+      "label": "Colour label",
+      "default": "Colour"
+    },
+    {
+      "type": "text",
+      "id": "label_category",
+      "label": "Category label",
+      "default": "Category"
+    },
+    {
+      "type": "text",
+      "id": "label_ideal_for",
+      "label": "Ideal For label",
+      "default": "Ideal For"
+    },
+    {
+      "type": "text",
+      "id": "label_occasions",
+      "label": "Occasions label",
+      "default": "Occasions"
+    },
+    {
+      "type": "text",
+      "id": "label_styling",
+      "label": "Styling label",
+      "default": "Styling"
+    },
+    {
+      "type": "header",
+      "content": "Section Layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    }
+  ],
+  "presets": [
+    {
+      "name": "Additional information"
+    }
+  ]
+}
+{% endschema %}

@@ -103,11 +103,35 @@
   content="{{ og_description | escape }}"
 >
 
+{%- comment -%}
+  PAGE TITLE
+{%- endcomment -%}
+
 <title>
-  {{ page_title }}
-  {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-  {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-  {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  {% if request.path == '/collections/all' %}
+    Shop All Gifts | Earrings, Necklaces & Pendants – Prettyx
+
+  {% elsif request.path == '/policies/privacy-policy' %}
+    Privacy Policy | Prettyx
+
+  {% elsif request.path == '/policies/terms-of-service' %}
+    Terms of Service | Prettyx
+
+  {% elsif request.path == '/policies/refund-policy' %}
+    Refund & Return Policy | Prettyx
+
+  {% elsif request.path == '/policies/shipping-policy' %}
+    Shipping Policy | Prettyx
+
+  {% elsif request.path == '/policies/contact-information' %}
+    Contact Information | Prettyx
+
+  {% else %}
+    {{ page_title }}
+    {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+    {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  {% endif %}
 </title>
 
 <link
@@ -115,9 +139,57 @@
   href="{{ canonical_url }}"
 >
 
-{% if page_description %}
+{%- comment -%}
+  META DESCRIPTION
+{%- endcomment -%}
+
+{% if request.path == '/collections/all' %}
+
+  <meta
+    name="description"
+    content="Shop Prettyx's full gifting collection — earrings, necklaces & pendants starting at ₹149. Thoughtful gifts for her, for him & every occasion."
+  >
+
+{% elsif request.path == '/policies/privacy-policy' %}
+
+  <meta
+    name="description"
+    content="Read how Prettyx collects, uses, and protects your personal data when you shop with us online."
+  >
+
+{% elsif request.path == '/policies/terms-of-service' %}
+
+  <meta
+    name="description"
+    content="Read the terms and conditions that apply when you shop, place orders, or use the Prettyx website."
+  >
+
+{% elsif request.path == '/policies/refund-policy' %}
+
+  <meta
+    name="description"
+    content="Prettyx accepts returns only for damaged or defective items, reported within 2 days with an unboxing video. Shipping fees are non-refundable."
+  >
+
+{% elsif request.path == '/policies/shipping-policy' %}
+
+  <meta
+    name="description"
+    content="Orders dispatch within 1–8 working days & arrive in 5–7 days after that. Free shipping on orders above ₹499. See full shipping details."
+  >
+
+{% elsif request.path == '/policies/contact-information' %}
+
+  <meta
+    name="description"
+    content="Find Prettyx's official contact details — phone, email & support info for order, shipping, or gifting queries."
+  >
+
+{% elsif page_description %}
+
   <meta
     name="description"
     content="{{ page_description | escape }}"
   >
+
 {% endif %}

@@ -1,0 +1,78 @@
+{% comment %}
+  Renders one accordion row per entry in a "list of metaobject references" metafield.
+  Reuses the same accordion-custom-component snippet the manual accordion-row block uses,
+  so markup/styling stays identical — content is just generated instead of block-authored.
+{% endcomment %}
+
+{% liquid
+  assign faq_metafield = article.metafields[block.settings.faq_namespace][block.settings.faq_key]
+  if faq_metafield == blank
+    assign faq_metafield = product.metafields[block.settings.faq_namespace][block.settings.faq_key]
+  endif
+%}
+
+{% if faq_metafield != blank and faq_metafield.value.size > 0 %}
+  <div class="accordion-faq-metaobjects" {{ block.shopify_attributes }}>
+    {% content_for 'blocks' %}
+
+    {% for faq in faq_metafield.value %}
+      {% liquid
+        assign faq_question = faq.question.value | default: faq.question
+        assign faq_answer_field = faq.answer
+      %}
+
+      {% capture accordion_row_children_custom %}
+        <details class="details" data-testid="accordion-details">
+          <summary class="details__header">
+            {{ faq_question }}
+            <span class="svg-wrapper icon-caret icon-animated">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+            <span class="svg-wrapper icon-plus">
+              {{- 'icon-plus.svg' | inline_asset_content -}}
+            </span>
+          </summary>
+
+          <div class="details-content">
+            {{ faq_answer_field | metafield_tag }}
+          </div>
+        </details>
+      {% endcapture %}
+
+      {% render 'accordion-custom-component',
+        children: accordion_row_children_custom,
+        open_by_default_on_desktop: false,
+        open_by_default_on_mobile: false
+      %}
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "FAQ (metaobjects)",
+  "tag": null,
+  "blocks": [
+    { "type": "@theme" },
+    { "type": "@app" },
+    {"type": "_heading"}
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "faq_namespace",
+      "label": "Metafield namespace",
+      "default": "custom"
+    },
+    {
+      "type": "text",
+      "id": "faq_key",
+      "label": "Metafield key",
+      "default": "faqs"
+    }
+  ],
+  "presets": [
+    { "name": "FAQ (metaobjects)" }
+  ]
+}
+{% endschema %}

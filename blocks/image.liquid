@@ -61,6 +61,7 @@
 {% endcapture %}
 
 {% if block_settings.link == blank %}
+  {%- if block_settings.image != blank-%}
   <div
     class="{{ class }}"
     style="{{ style }}"
@@ -68,6 +69,7 @@
   >
     {{ image }}
   </div>
+  {% endif %}
 {% else %}
   <a
     href="{{ block_settings.link }}"
