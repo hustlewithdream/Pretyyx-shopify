@@ -194,6 +194,21 @@
               },
               "blocks": {}
             },
+            "product_inventory_TqaE6M": {
+              "type": "product-inventory",
+              "name": "t:names.product_inventory",
+              "disabled": true,
+              "settings": {
+                "inventory_threshold": 10,
+                "show_inventory_quantity": true,
+                "text_color": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
@@ -279,6 +294,7 @@
             "text_aEtTtq": {
               "type": "text",
               "name": "t:names.product_description",
+              "disabled": true,
               "settings": {
                 "text": "{{ closest.product.description }}",
                 "width": "100%",
@@ -301,14 +317,122 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "accordion_CKfmtA": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "disabled": true,
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "divider_color": "",
+                "type_preset": "h6",
+                "background_color": "",
+                "text_color": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_pRY79d": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Return policy",
+                    "open_by_default": true,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_ibzfgA": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_ibzfgA"
+                  ]
+                },
+                "accordion_row_BFRwjm": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Manufacturing",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_q889ge": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_q889ge"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_pRY79d",
+                "accordion_row_BFRwjm"
+              ]
             }
           },
           "block_order": [
             "group_icgrde",
             "divider_VJhene",
+            "product_inventory_TqaE6M",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "text_aEtTtq",
+            "accordion_CKfmtA"
           ]
         }
       },
@@ -325,6 +449,27 @@
         "background_color": "{{ settings.color_palette.background }}",
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "product_additional_info_YMk7LG": {
+      "type": "product-additional-info",
+      "name": "Additional information",
+      "settings": {
+        "description_heading": "Description",
+        "open_description_by_default": false,
+        "heading": "Additional information",
+        "open_additional_info_by_default": false,
+        "care_instructions_heading": "Care instructions",
+        "open_care_instructions_by_default": false,
+        "label_colour": "Color",
+        "label_category": "Category",
+        "label_ideal_for": "Ideal For",
+        "label_occasions": "Occasions",
+        "label_styling": "Styling",
+        "section_width": "page-width",
+        "background_color": "",
+        "padding-block-start": 24,
+        "padding-block-end": 24
       }
     },
     "product_recommendations_qggXJq": {
@@ -472,6 +617,7 @@
   },
   "order": [
     "main",
+    "product_additional_info_YMk7LG",
     "product_recommendations_qggXJq"
   ]
 }
