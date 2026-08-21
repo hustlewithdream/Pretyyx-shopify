@@ -691,7 +691,7 @@
               "type": "_accordion-row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "Where are your products manufactured?",
+                "heading": "4. How much does shipping cost, and how long does delivery take?",
                 "open_by_default": false,
                 "icon": "none",
                 "width": 20
@@ -701,7 +701,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                    "text": "<p>Orders are dispatched within 1–8 working days and typically arrive within 5–7 days after dispatch. Shipping is free on orders above ₹499.</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -732,7 +732,7 @@
               "type": "_accordion-row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "How much does shipping cost?",
+                "heading": "5. What is Prettyx's return policy?",
                 "open_by_default": false,
                 "icon": "none",
                 "width": 20
@@ -742,7 +742,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Shipping is calculated based on your location and the items in your order. You will always know the shipping price before you purchase.</p>",
+                    "text": "<p>We accept returns only for items that arrive damaged or defective. You'll need to record an unboxing video and contact our support team within 2 days of delivery — full details are on our Refund Policy page.</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -768,6 +768,46 @@
               "block_order": [
                 "text_KRMj6m"
               ]
+            },
+            "accordion_row_zytPXA": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "6. Are Prettyx products good for gifting on a budget?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_PiMHVW": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Yes — most of our earrings and pendants start at ₹149, and our digital gift cards start at ₹99, making it easy to find a thoughtful gift regardless of budget.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_PiMHVW"
+              ]
             }
           },
           "block_order": [
@@ -775,7 +815,8 @@
             "accordion_row_wLmbMR",
             "accordion_row_8LEBHG",
             "accordion_row_ye7wim",
-            "accordion_row_yKarb7"
+            "accordion_row_yKarb7",
+            "accordion_row_zytPXA"
           ]
         }
       },
