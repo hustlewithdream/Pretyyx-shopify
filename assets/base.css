@@ -1907,3 +1907,8 @@ h4, .h4.h4, .text-block.h4>*, .text-block.h4 :is(h1,h2,h3,h4,h5,h6) {
 footer .shopify-section-group-footer-group .footer-content h4{
   font-size: 17px !important;
 }
+
+main[data-template="page.contact"] .text-block>* {
+    width: 100%;
+    max-inline-size: 100%;
+}
