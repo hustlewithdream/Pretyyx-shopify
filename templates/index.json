@@ -808,6 +808,46 @@
               "block_order": [
                 "text_PiMHVW"
               ]
+            },
+            "accordion_row_7WqHVE": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "7. Can I send a gift to someone in another city or country?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_pT9KzY": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Absolutely. Our physical jewelry ships across India, and our digital gift cards can be sent instantly to anyone, anywhere, over WhatsApp or Instagram — no shipping required</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_pT9KzY"
+              ]
             }
           },
           "block_order": [
@@ -816,7 +856,8 @@
             "accordion_row_8LEBHG",
             "accordion_row_ye7wim",
             "accordion_row_yKarb7",
-            "accordion_row_zytPXA"
+            "accordion_row_zytPXA",
+            "accordion_row_7WqHVE"
           ]
         }
       },
