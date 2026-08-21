@@ -54,7 +54,6 @@
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
 
-    {% render 'breadcrumbs' %}
     {% render 'chat-drawer' %}
 
     <div class="page-wrapper">
@@ -177,6 +176,16 @@
         data-product-transition="{{ settings.transition_to_main_product }}"
         data-template="{{ template }}"
       >
+      {% if request.page_type == 'product'
+  or request.page_type == 'collection'
+  or request.page_type == 'page'
+  or request.page_type == 'blog'
+  or request.page_type == 'article'
+  or request.page_type == 'search'
+  or request.page_type == 'list-collections'
+%}
+  {% render 'breadcrumbs' %}
+{% endif %}
         {{ content_for_layout }}
       </main>
 
