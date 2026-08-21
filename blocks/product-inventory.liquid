@@ -49,7 +49,154 @@
     }
   {% endstyle %}
 {% endif %}
+{% comment %}
+  Product Social Proof
+  IMPORTANT:
+  data-purchases must contain a genuine purchase count.
+  Do not randomly generate or increase purchase numbers.
+{% endcomment %}
 
+{% assign recent_purchase_count = product.metafields.custom.recent_purchase_count | default: 0 %}
+{% assign purchase_hours = product.metafields.custom.purchase_window_hours | default: 2 %}
+
+{% if recent_purchase_count > 0 %}
+  <div
+    class="product-social-proof"
+    data-purchases="{{ recent_purchase_count }}"
+    data-hours="{{ purchase_hours }}"
+  >
+    <div class="product-social-proof__message">
+
+      <span class="product-social-proof__icon" aria-hidden="true">
+        🔥
+      </span>
+
+      <span class="product-social-proof__text">
+        <strong class="product-social-proof__count">
+          {{ recent_purchase_count }}
+        </strong>
+        people purchased this in the last
+        <strong class="product-social-proof__hours">
+          {{ purchase_hours }}
+        </strong>
+        hours
+      </span>
+
+    </div>
+  </div>
+{% endif %}
+
+<style>
+  .product-social-proof {
+    width: 100%;
+    margin: 12px 0;
+  }
+
+  .product-social-proof__message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 13px;
+    border-radius: 8px;
+    background: #fff7f2;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .product-social-proof__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    min-width: 22px;
+    font-size: 17px;
+    transform-origin: center;
+  }
+
+  /*
+    Short attention animation.
+    The fire icon pulses for approximately 0.3s,
+    then stays still.
+  */
+  .product-social-proof__icon.is-pulsing {
+    animation: socialProofFire 0.3s ease-in-out;
+  }
+
+  @keyframes socialProofFire {
+    0% {
+      transform: scale(1);
+    }
+
+    45% {
+      transform: scale(1.3) rotate(-4deg);
+    }
+
+    75% {
+      transform: scale(0.92) rotate(3deg);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .product-social-proof__text {
+    color: #333;
+  }
+
+  .product-social-proof__count,
+  .product-social-proof__hours {
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-social-proof__message {
+      font-size: 12px;
+      padding: 9px 11px;
+    }
+
+    .product-social-proof__icon {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const socialProof = document.querySelector('.product-social-proof');
+
+    if (!socialProof) return;
+
+    const icon = socialProof.querySelector('.product-social-proof__icon');
+
+    if (!icon) return;
+
+    function pulseFire() {
+      icon.classList.remove('is-pulsing');
+
+      /*
+        Force browser reflow so the animation
+        can run again.
+      */
+      void icon.offsetWidth;
+
+      icon.classList.add('is-pulsing');
+    }
+
+    /*
+      Initial attention animation.
+    */
+    setTimeout(pulseFire, 1200);
+
+    /*
+      Repeat every 6 seconds.
+      Change this to 8-10 seconds if you
+      want a calmer premium look.
+    */
+    setInterval(pulseFire, 6000);
+  });
+</script>
 <product-inventory
   class="
     product-inventory product-inventory-{{ block.id }} spacing-style
