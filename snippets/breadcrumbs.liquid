@@ -19,6 +19,21 @@
                     </a>
                     <meta itemprop="position" content="2" />
                 </li>
+                
+                <!-- Blog Article -->
+                {% elsif request.page_type == 'article' and article %}
+
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="{{ blog.url }}" itemprop="item">
+                    <span itemprop="name">{{ blog.title }}</span>
+                    </a>
+                    <meta itemprop="position" content="2">
+                </li>
+
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name">{{ article.title }}</span>
+                    <meta itemprop="position" content="3">
+                </li>
                 {% elsif product.collections.size > 0 %}
                 {% assign first_collection = product.collections | first %}
                 <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
