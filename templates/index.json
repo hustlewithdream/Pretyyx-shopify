@@ -79,7 +79,7 @@
       "name": "t:names.marquee_section",
       "settings": {
         "movement_direction": "normal",
-        "background_color": "{{ settings.color_palette.foreground }}",
+        "background_color": "#300708",
         "padding-block-start": 10,
         "padding-block-end": 10,
         "gap_between_elements": 24
@@ -347,12 +347,12 @@
         "cta_text": "See why they're loved",
         "cta_link": ""
       }
-    },
+    }
   },
   "order": [
     "hero_jVaWmY",
     "marquee_kGhWi8",
     "product_list_fa6P9H",
-    "loved_worn_reviews_HNrhrt",
+    "loved_worn_reviews_HNrhrt"
   ]
 }
