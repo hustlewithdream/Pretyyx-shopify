@@ -158,6 +158,11 @@
           "enableSortMutation": false,
           "searchAndFilterApp": "none"
         }
+      },
+      "16204423388565050744": {
+        "type": "shopify://apps/webux-whatsapp/blocks/whatsapp-button/019f6ba2-8665-7ef8-8b5f-d7373ea0aa57",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_palette": {
