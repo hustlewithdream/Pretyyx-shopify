@@ -201,3 +201,232 @@
   >
 
 {% endif %}
+
+
+{%- comment -%}
+  ================================
+  STRUCTURED DATA / JSON-LD
+  ================================
+{%- endcomment -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "OnlineStore",
+      "@id": "{{ shop.url }}/#organization",
+      "name": {{ shop.name | json }},
+      "url": {{ shop.url | json }}
+      {% if settings.logo != blank %},
+      "logo": {
+        "@type": "ImageObject",
+        "url": {{ settings.logo | image_url: width: 600 | prepend: 'https:' | json }}
+      }
+      {% endif %}
+
+      {% if shop.description != blank %},
+      "description": {{ shop.description | strip_html | json }}
+      {% endif %}
+
+      {% assign social_links = '' %}
+
+      {% if settings.social_facebook_link != blank %}
+        {% assign social_links = social_links | append: settings.social_facebook_link | append: '||' %}
+      {% endif %}
+
+      {% if settings.social_instagram_link != blank %}
+        {% assign social_links = social_links | append: settings.social_instagram_link | append: '||' %}
+      {% endif %}
+
+      {% if settings.social_twitter_link != blank %}
+        {% assign social_links = social_links | append: settings.social_twitter_link | append: '||' %}
+      {% endif %}
+
+      {% if settings.social_youtube_link != blank %}
+        {% assign social_links = social_links | append: settings.social_youtube_link | append: '||' %}
+      {% endif %}
+
+      {% if settings.social_tiktok_link != blank %}
+        {% assign social_links = social_links | append: settings.social_tiktok_link | append: '||' %}
+      {% endif %}
+
+      {% assign social_array = social_links | split: '||' | compact %}
+
+      {% if social_array.size > 0 %},
+      "sameAs": [
+        {% for social in social_array %}
+          {{ social | json }}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+      {% endif %}
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "{{ shop.url }}/#website",
+      "url": {{ shop.url | json }},
+      "name": {{ shop.name | json }},
+      "publisher": {
+        "@id": "{{ shop.url }}/#organization"
+      }
+    }
+
+    {% if request.page_type == 'product' and product != blank %}
+
+    ,
+
+    {
+      "@type": "Product",
+      "@id": "{{ canonical_url }}#product",
+      "name": {{ product.title | json }},
+      "url": {{ canonical_url | json }},
+
+      {% if product.featured_image != blank %}
+      "image": [
+        {{ product.featured_image | image_url: width: 1200 | prepend: 'https:' | json }}
+      ],
+      {% endif %}
+
+      "description": {{ product.description | strip_html | truncate: 5000 | json }},
+
+      "brand": {
+        "@type": "Brand",
+        "name": {{ product.vendor | default: shop.name | json }}
+      },
+
+      {% if product.selected_or_first_available_variant.sku != blank %}
+      "sku": {{ product.selected_or_first_available_variant.sku | json }},
+      {% endif %}
+
+      "offers": {
+        "@type": "Offer",
+        "url": {{ canonical_url | json }},
+        "priceCurrency": {{ cart.currency.iso_code | json }},
+        "price": {{ product.selected_or_first_available_variant.price | divided_by: 100.0 }},
+        "availability":
+          {% if product.selected_or_first_available_variant.available %}
+            "https://schema.org/InStock"
+          {% else %}
+            "https://schema.org/OutOfStock"
+          {% endif %}
+      }
+    }
+
+    {% endif %}
+
+    {% if request.page_type == 'article' and article != blank %}
+
+    ,
+
+    {
+      "@type": "Article",
+      "@id": "{{ canonical_url }}#article",
+      "headline": {{ article.title | json }},
+      "url": {{ canonical_url | json }},
+      "description": {{ article.excerpt_or_content | strip_html | truncate: 5000 | json }},
+      "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%S%z' | json }},
+      "dateModified": {{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S%z' | json }},
+
+      {% if article.image != blank %}
+      "image": [
+        {{ article.image | image_url: width: 1200 | prepend: 'https:' | json }}
+      ],
+      {% endif %}
+
+      "author": {
+        "@type": "Person",
+        "name": {{ article.author | json }}
+      },
+
+      "publisher": {
+        "@id": "{{ shop.url }}/#organization"
+      }
+    }
+
+    {% endif %}
+
+    {% unless request.page_type == 'index' %}
+
+    ,
+
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": {{ shop.url | json }}
+        }
+
+        {% if request.page_type == 'collection' and collection != blank %}
+
+        ,
+
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ collection.title | json }},
+          "item": {{ canonical_url | json }}
+        }
+
+        {% elsif request.page_type == 'product' and product != blank %}
+
+        ,
+
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "{{ shop.url }}/collections/all"
+        },
+
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ product.title | json }},
+          "item": {{ canonical_url | json }}
+        }
+
+        {% elsif request.page_type == 'article' and article != blank %}
+
+        ,
+
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "{{ shop.url }}/blogs"
+        },
+
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ article.title | json }},
+          "item": {{ canonical_url | json }}
+        }
+
+        {% elsif request.page_type == 'page' %}
+
+        ,
+
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ page_title | json }},
+          "item": {{ canonical_url | json }}
+        }
+
+        {% endif %}
+
+      ]
+    }
+
+    {% endunless %}
+
+  ]
+}
+</script>
