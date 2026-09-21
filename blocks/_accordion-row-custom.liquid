@@ -5,9 +5,9 @@
 {% endcomment %}
 {% liquid
   assign faq_metafield = article.metafields[block.settings.faq_namespace][block.settings.faq_key]
-  if faq_metafield == blank
+  if template.name == 'product'
     assign faq_metafield = product.metafields[block.settings.faq_namespace][block.settings.faq_key]
-  elsif faq_metafield == blank
+  elsif template.name == 'collection'
       assign faq_metafield = collection.metafields[block.settings.faq_namespace][block.settings.faq_key]
   endif
 %}
