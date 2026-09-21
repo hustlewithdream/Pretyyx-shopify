@@ -547,7 +547,7 @@
           %}
           {
             "@type": "Question",
-            "name": {{ faq_question | strip_html | json }},
+            "name": {{ faq_question | json }},
             "acceptedAnswer": {
               "@type": "Answer",
               "text": {{ faq_answer | metafield_tag | strip_html | json }}
