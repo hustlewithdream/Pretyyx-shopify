@@ -532,7 +532,9 @@
 </script>
 {% endif %}
 
-{% if template.name == 'collection' %}
+
+{% assign faq_metafield_collection = collection.metafields.custom.collection_faq_s %}
+{% if template.name == 'collection' and faq_metafield_collection != blank %}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
