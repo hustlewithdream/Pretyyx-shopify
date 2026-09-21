@@ -303,6 +303,32 @@
               },
               "blocks": {}
             },
+            "text_ENQJ4w": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p><a href=\"/collections/kanjak-hampers\" title=\"Kanjak Hampers\">Kanjak Hampers</a></p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "text_ghnWtN": {
               "type": "text",
               "name": "t:names.text",
@@ -361,6 +387,7 @@
             "text_CT7nb8",
             "text_XYAzhh",
             "text_3rePkq",
+            "text_ENQJ4w",
             "text_ghnWtN",
             "text_Pfj8kr"
           ]
@@ -724,7 +751,7 @@
       "settings": {
         "section_width": "page-width",
         "gap": 20,
-        "background_color": "#7A3045",
+        "background_color": "#7a3045",
         "padding-block-start": 70,
         "padding-block-end": 34
       }
@@ -771,7 +798,7 @@
       "settings": {
         "section_width": "page-width",
         "gap": 24,
-        "background_color": "#7A3045",
+        "background_color": "#7a3045",
         "divider_thickness": 1,
         "divider_color": "{{ settings.color_palette.background }}",
         "padding-block-start": 20,
