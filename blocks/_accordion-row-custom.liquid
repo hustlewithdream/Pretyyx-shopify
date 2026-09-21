@@ -8,6 +8,8 @@
   assign faq_metafield = article.metafields[block.settings.faq_namespace][block.settings.faq_key]
   if faq_metafield == blank
     assign faq_metafield = product.metafields[block.settings.faq_namespace][block.settings.faq_key]
+  elsif faq_metafield == blank
+      assign faq_metafield = collection.metafields[block.settings.faq_namespace][block.settings.faq_key]
   endif
 %}
 
