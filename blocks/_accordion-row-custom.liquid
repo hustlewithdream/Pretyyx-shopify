@@ -11,9 +11,7 @@
       assign faq_metafield = collection.metafields[block.settings.faq_namespace][block.settings.faq_key]
   endif
 %}
-
 {% if faq_metafield != blank and faq_metafield.value.size > 0 %}
-  {{  faq_metafield }}
   <div class="accordion-faq-metaobjects" {{ block.shopify_attributes }}>
     {% content_for 'blocks' %}
 
