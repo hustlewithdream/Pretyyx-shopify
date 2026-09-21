@@ -559,14 +559,14 @@
     </script>
 {% endif %}
 
-{% assign faq_metafield_collection = article.metafields.custom.faq_s %}
-{% if template.name == 'article' and faq_metafield_collection != blank %}
+{% assign faq_metafield_article = article.metafields.custom.faq_s %}
+{% if template.name == 'article' and faq_metafield_article != blank %}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {% for faq in faq_metafield.value %}
+        {% for faq in faq_metafield_article %}
           {% liquid
             assign faq_question = faq.question.value | default: faq.question
             assign faq_answer = faq.answer.value | default: faq.answer
