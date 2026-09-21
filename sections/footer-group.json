@@ -731,13 +731,35 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "social_links_XeyEfy": {
+              "type": "social-links",
+              "name": "t:names.social_media_links",
+              "settings": {
+                "icon_color": "",
+                "facebook_url": "",
+                "instagram_url": "https://www.instagram.com/beprettyx_",
+                "youtube_url": "https://www.youtube.com/@be.pretty_x",
+                "tiktok_url": "",
+                "twitter_url": "",
+                "threads_url": "",
+                "linkedin_url": "",
+                "bluesky_url": "",
+                "snapchat_url": "",
+                "pinterest_url": "",
+                "tumblr_url": "",
+                "vimeo_url": "",
+                "custom_url": ""
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "text_LWt8Pz",
             "text_f9CFLH",
             "email_signup_tDd8KQ",
-            "payment_icons_RPi84N"
+            "payment_icons_RPi84N",
+            "social_links_XeyEfy"
           ]
         }
       },
@@ -768,31 +790,10 @@
             "case": "none"
           },
           "blocks": {}
-        },
-        "social_links_Ew63Kq": {
-          "type": "social-links",
-          "settings": {
-            "icon_color": "",
-            "facebook_url": "",
-            "instagram_url": "https://www.instagram.com/beprettyx_",
-            "youtube_url": "https://www.youtube.com/@be.pretty_x",
-            "tiktok_url": "",
-            "twitter_url": "",
-            "threads_url": "",
-            "linkedin_url": "",
-            "bluesky_url": "",
-            "snapchat_url": "",
-            "pinterest_url": "https://in.pinterest.com/beprettyx",
-            "tumblr_url": "",
-            "vimeo_url": "",
-            "custom_url": ""
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "footer_copyright_jweRK8",
-        "social_links_Ew63Kq"
+        "footer_copyright_jweRK8"
       ],
       "name": "t:names.utilities",
       "settings": {
