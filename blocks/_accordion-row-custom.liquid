@@ -3,7 +3,6 @@
   Reuses the same accordion-custom-component snippet the manual accordion-row block uses,
   so markup/styling stays identical — content is just generated instead of block-authored.
 {% endcomment %}
-
 {% liquid
   assign faq_metafield = article.metafields[block.settings.faq_namespace][block.settings.faq_key]
   if faq_metafield == blank
