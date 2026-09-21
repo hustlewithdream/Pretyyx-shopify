@@ -550,7 +550,7 @@
             "name": {{ faq_question | json }},
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": {{ faq_answer | metafield_tag | strip_html | json }}
+              "text": {{ faq_answer | strip_html | json }}
             }
           }{% unless forloop.last %},{% endunless %}
         {% endfor %}
@@ -576,7 +576,7 @@
             "name": {{ faq_question | strip_html | json }},
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": {{ faq_answer | metafield_tag | strip_html | json }}
+              "text": {{ faq_answer | strip_html | json }}
             }
           }{% unless forloop.last %},{% endunless %}
         {% endfor %}
