@@ -558,3 +558,29 @@
     }
     </script>
 {% endif %}
+
+{% assign faq_metafield_collection = article.metafields.custom.faq_s %}
+{% if template.name == 'article' and faq_metafield_collection != blank %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {% for faq in faq_metafield.value %}
+          {% liquid
+            assign faq_question = faq.question.value | default: faq.question
+            assign faq_answer = faq.answer.value | default: faq.answer
+          %}
+          {
+            "@type": "Question",
+            "name": {{ faq_question | strip_html | json }},
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": {{ faq_answer | metafield_tag | strip_html | json }}
+            }
+          }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+    </script>
+{% endif %}
