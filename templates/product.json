@@ -426,6 +426,7 @@
             "product_recommendations_UYK4Ue": {
               "type": "product-recommendations",
               "name": "t:names.product_recommendations",
+              "disabled": true,
               "settings": {
                 "recommendation_type": "related",
                 "layout_type": "carousel",
