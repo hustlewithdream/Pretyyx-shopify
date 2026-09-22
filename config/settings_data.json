@@ -163,6 +163,11 @@
         "type": "shopify://apps/webux-whatsapp/blocks/whatsapp-button/019f6ba2-8665-7ef8-8b5f-d7373ea0aa57",
         "disabled": false,
         "settings": {}
+      },
+      "13768625480086291342": {
+        "type": "shopify://apps/forms/blocks/forms/8744a304-fcb1-4347-b211-bb6b4759a76a",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_palette": {
