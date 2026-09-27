@@ -230,6 +230,26 @@
               },
               "blocks": {}
             },
+            "product_custom_property_q3bd3i": {
+              "type": "product-custom-property",
+              "name": "t:names.product_custom_property",
+              "settings": {
+                "property_heading": "Add a Gift Message 🎁",
+                "property_description": "",
+                "property_key": "Message",
+                "input_type": "text",
+                "max_length": 100,
+                "checkbox_label": "Include gift wrapping",
+                "required": false,
+                "placeholder": "Enter your special instructions",
+                "placeholder_textarea": "Write a sweet message for your loved one…",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "buy_buttons_eYQEYi": {
               "type": "buy-buttons",
               "settings": {
@@ -633,6 +653,7 @@
             "product_inventory_TqaE6M",
             "divider_VJhene",
             "variant_picker_R3rGDr",
+            "product_custom_property_q3bd3i",
             "buy_buttons_eYQEYi",
             "text_aEtTtq",
             "accordion_CKfmtA",
