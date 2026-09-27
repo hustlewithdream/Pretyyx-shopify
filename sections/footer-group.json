@@ -732,6 +732,31 @@
               },
               "blocks": {}
             },
+            "text_TBAUiG": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Follow us</h4>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "social_links_XeyEfy": {
               "type": "social-links",
               "name": "t:names.social_media_links",
@@ -759,6 +784,7 @@
             "text_f9CFLH",
             "email_signup_tDd8KQ",
             "payment_icons_RPi84N",
+            "text_TBAUiG",
             "social_links_XeyEfy"
           ]
         }
