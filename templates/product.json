@@ -174,11 +174,16 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
+                },
+                "judge_me_reviews_preview_badge_FwYPna": {
+                  "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+                  "settings": {}
                 }
               },
               "block_order": [
                 "text_xrnftG",
-                "price_tVjtKg"
+                "price_tVjtKg",
+                "judge_me_reviews_preview_badge_FwYPna"
               ]
             },
             "product_inventory_TqaE6M": {
@@ -446,6 +451,7 @@
             "product_recommendations_UYK4Ue": {
               "type": "product-recommendations",
               "name": "t:names.product_recommendations",
+              "disabled": true,
               "settings": {
                 "recommendation_type": "related",
                 "layout_type": "carousel",
