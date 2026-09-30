@@ -131,7 +131,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>For any suggestions, queries or complaints please contact us:<br/><br/>Phone : <a href=\"tel:+91 88174 14895\" title=\"Phone\">+91 88174 14895</a><br/>Email : <a href=\"mailto:support.prettyx@gmail.com\" title=\"Email\">support.prettyx@gmail.com</a></p>",
+                "text": "<p>For any suggestions, queries or&nbsp;complaints please contact us:<br/><br/>Phone : <a href=\"tel:+91 82691 25662\" title=\"tel:+91 82691 25662\">+91 82691 25662</a><br/>Email : <a href=\"mailto:support.prettyx@gmail.com\" title=\"Email\">support.prettyx@gmail.com</a></p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
